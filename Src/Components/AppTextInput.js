@@ -4,9 +4,12 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Dimensions,
+  Platform
 } from 'react-native';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+const {width, height} = Dimensions.get("window");
 
 const AppTextInput = props => {
   const [showPassword, setshowPassword] = useState(false);
@@ -29,7 +32,7 @@ const AppTextInput = props => {
             }}>
             <Icon
               name={showPassword ? 'eye-slash' : props.icon}
-              color={'#aeaeae'}
+              color={'#a71f42'}
               size={22}
             />
           </TouchableOpacity>
@@ -48,7 +51,7 @@ const AppTextInput = props => {
 
           {props.icon && (
             <View>
-              <Icon name={props.icon} color={'#aeaeae'} size={22} />
+              <Icon name={props.icon} color={'#a71f42'} size={22} />
             </View>
           )}
         </View>
@@ -65,10 +68,12 @@ const styles = StyleSheet.create({
     width: '90%',
     marginVertical: 10,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between',   
+    alignItems : 'center',
     borderColor: '#aeaeae',
     borderRadius: 10,
     borderWidth: 1.5,
-    padding: 15,
+    paddingHorizontal : Platform.OS == 'android' ? width*0.03 : width*0.02,
+    paddingVertical : Platform.OS == 'ios' ? height*0.015 : height*0.005,
   },
 });

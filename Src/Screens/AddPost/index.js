@@ -6,6 +6,8 @@ import AppButton from '../../Components/AppButton';
 import AppTextInput from '../../Components/AppTextInput';
 import Header from '../../Components/Header';
 import { set_PostData } from '../../Store/action/MainAction';
+import styles from './style';
+
 
 function AddPost({props, navigation}) {
     const dispatch = useDispatch();
@@ -66,22 +68,19 @@ function AddPost({props, navigation}) {
           }}
         />
 
-        <AppTextInput
-          value={body}
+       
+
+        <TextInput 
+        value={body}
           onChangeText={text => {
             setBody(text);
           }}
           multiline={true}
           numofLines={4}
-          PlaceHolderText={'blog details'}
+          placeholder={'blog details'}
           placeholderTextColor={'silver'}
-          style={{
-            height:"50%",
-          }}
-         
+          style={styles.descriptionInput}
         />
-
-        
       <AppButton 
         BtnTitle={"Add Post"}
         onPress={() => {
@@ -94,11 +93,6 @@ function AddPost({props, navigation}) {
     );
 }
 
-const styles = StyleSheet.create({
-    container : {
-
-    }
-});
 
 
 export default AddPost;
