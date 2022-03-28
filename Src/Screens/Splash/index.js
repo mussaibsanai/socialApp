@@ -1,21 +1,17 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, SafeAreaView, ActivityIndicator} from 'react-native';
 import 'react-native-gesture-handler';
+import styles from './style';
 
 function Splash(props) {
 
     return(
-       <View style={styles.container}>
-            <Text>Splash</Text>
-       </View> 
+       <SafeAreaView style={styles.container}>
+            <ActivityIndicator color={"#a71f42"} size={'large'} />
+       </SafeAreaView> 
     );
 }
 
-const styles = StyleSheet.create({
-    container : {
-
-    }
-});
 
 
 export default Splash;

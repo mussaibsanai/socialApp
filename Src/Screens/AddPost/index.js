@@ -34,7 +34,7 @@ function AddPost({props, navigation}) {
             console.log(response);
             let data = response.data;
             let arr = posts;
-            arr.push(data)
+            arr.unshift(data)
             dispatch(set_PostData(arr));
             navigation.replace("Home");
           })
